@@ -26,6 +26,8 @@
 		DA1921951D21932000C8D985 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA19218F1D21932000C8D985 /* Slt.framework */; };
 		DA1921981D21E18200C8D985 /* MyCustomDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */; };
 		DA1921991D21E18200C8D985 /* MyCustomDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */; };
+		DA19219B1D2221F100C8D985 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA19219A1D2221F100C8D985 /* ContainerViewController.swift */; };
+		DA19219C1D2221F100C8D985 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA19219A1D2221F100C8D985 /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		DA19218E1D21932000C8D985 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		DA19218F1D21932000C8D985 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MyCustomDictionary.txt; sourceTree = "<group>"; };
+		DA19219A1D2221F100C8D985 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 				DA1921411D1E412F00C8D985 /* AppDelegate.swift */,
 				DA1921431D1E412F00C8D985 /* ViewController.swift */,
 				DA1921451D1E412F00C8D985 /* Main.storyboard */,
+				DA19219A1D2221F100C8D985 /* ContainerViewController.swift */,
 				DA1921481D1E412F00C8D985 /* Assets.xcassets */,
 				DA19214A1D1E412F00C8D985 /* LaunchScreen.storyboard */,
 				DA19214D1D1E412F00C8D985 /* Info.plist */,
@@ -250,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1921441D1E412F00C8D985 /* ViewController.swift in Sources */,
+				DA19219B1D2221F100C8D985 /* ContainerViewController.swift in Sources */,
 				DA1921421D1E412F00C8D985 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA19219C1D2221F100C8D985 /* ContainerViewController.swift in Sources */,
 				DA1921571D1E413000C8D985 /* VirtualAssistantWithOpenEarsV1Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
