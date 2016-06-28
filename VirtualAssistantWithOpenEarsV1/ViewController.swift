@@ -20,6 +20,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     var dicPath: String = ""                            //Path to the dictionary
     var openEarsEventsObserver: OEEventsObserver! = nil //The Open Ears Observer
     
+    //create the model path using the pathForResource (which will get the path of the files on the device
     let modelPath: String = NSBundle.mainBundle().pathForResource("AcousticModelEnglish", ofType: "bundle")!
     
     
