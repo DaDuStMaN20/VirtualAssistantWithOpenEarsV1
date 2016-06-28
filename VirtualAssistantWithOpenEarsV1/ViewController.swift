@@ -19,6 +19,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     var lmPath: String = ""                             //The path of the language model
     var dicPath: String = ""                            //Path to the dictionary
     var openEarsEventsObserver: OEEventsObserver! = nil //The Open Ears Observer
+    var didDetectSpeech: Bool = false                   //Keeps track of if speech is detected (for utterance end purposes)
     
     @IBOutlet weak var recognitionContainer: UIView!
     
@@ -54,7 +55,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         startRecognition()
     }
     
-    
+    //MARK: Recognition Start and Stop Functions
     
     func startRecognition(){
         
@@ -115,6 +116,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     }
     
     
+    //MARK: Observer Functions
     
     func pocketsphinxDidReceiveHypothesis(hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
         print("Received Hypothesis: " + hypothesis + " with a recognition score of " + recognitionScore + " and an ID of ", utteranceID)
@@ -126,11 +128,19 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     func pocketsphinxDidDetectSpeech() {
         print("Speech Detected")
+        didDetectSpeech = true
     }
     
     func pocketsphinxDidDetectFinishedSpeech() {
+        
+        
         print("Utterance Concluded")
-        stopListening()
+        //if it does not detect anymore speech, it will stop listening
+        if didDetectSpeech == false{
+            stopListening()
+        }
+        
+        didDetectSpeech = false
         
         /* TIMER CODE (NOT NECESSARY, BUT MAY BE USEFUL
         var timer = NSTimer()
