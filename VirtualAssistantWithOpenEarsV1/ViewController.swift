@@ -47,6 +47,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     //MARK: Actions
     @IBAction func talkButtonAction(sender: UIButton) {
+        stopListening()
         startRecognition()
     }
     
@@ -126,8 +127,11 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     func pocketsphinxDidDetectFinishedSpeech() {
         print("Utterance Concluded")
+        stopListening()
+        
+        /* TIMER CODE (NOT NECESSARY, BUT MAY BE USEFUL
         var timer = NSTimer()
-        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(stopListening), userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(stopListening), userInfo: nil, repeats: false)*/
     }
  
     func pocketsphinxDidStopListening() {
