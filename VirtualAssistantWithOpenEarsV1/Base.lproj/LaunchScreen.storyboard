@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +18,85 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-VT-Zph">
+                                <rect key="frame" x="180" y="130" width="240" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CeP-VT-Zph" secondAttribute="height" multiplier="20:19" id="A3y-TR-Y0s"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="CeP-VT-Zph" secondAttribute="bottom" constant="286" id="1mJ-2V-6ke"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="CeP-VT-Zph" secondAttribute="bottom" constant="186" id="61V-61-4KT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CeP-VT-Zph" secondAttribute="trailing" constant="60" id="Pds-LX-fQS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="CeP-VT-Zph" secondAttribute="bottom" constant="186" id="X5y-D6-ICr"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="260" id="YNe-8J-1f5"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="166" id="YOX-Fq-VDi"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="60" id="ZK0-sE-dl1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CeP-VT-Zph" secondAttribute="trailing" constant="-45.5" id="ZuZ-0n-dHC"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="CeP-VT-Zph" secondAttribute="bottom" constant="186" id="e1z-tX-OXO"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="166" id="fKu-8A-eCS"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="266" id="gyb-Ut-fgc"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="166" id="h47-Fb-3NZ"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="160" id="nLE-xZ-EX1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CeP-VT-Zph" secondAttribute="trailing" constant="260" id="qKI-ov-st1"/>
+                            <constraint firstItem="CeP-VT-Zph" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-45" id="rR2-DO-YYG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CeP-VT-Zph" secondAttribute="trailing" constant="160" id="yn6-d4-b1W"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Pds-LX-fQS"/>
+                                <exclude reference="YNe-8J-1f5"/>
+                                <exclude reference="YOX-Fq-VDi"/>
+                                <exclude reference="ZK0-sE-dl1"/>
+                                <exclude reference="ZuZ-0n-dHC"/>
+                                <exclude reference="fKu-8A-eCS"/>
+                                <exclude reference="gyb-Ut-fgc"/>
+                                <exclude reference="h47-Fb-3NZ"/>
+                                <exclude reference="nLE-xZ-EX1"/>
+                                <exclude reference="qKI-ov-st1"/>
+                                <exclude reference="rR2-DO-YYG"/>
+                                <exclude reference="yn6-d4-b1W"/>
+                                <exclude reference="1mJ-2V-6ke"/>
+                                <exclude reference="61V-61-4KT"/>
+                                <exclude reference="X5y-D6-ICr"/>
+                                <exclude reference="e1z-tX-OXO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="gyb-Ut-fgc"/>
+                                <include reference="nLE-xZ-EX1"/>
+                                <include reference="yn6-d4-b1W"/>
+                                <include reference="1mJ-2V-6ke"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Pds-LX-fQS"/>
+                                <include reference="ZK0-sE-dl1"/>
+                                <include reference="fKu-8A-eCS"/>
+                                <include reference="X5y-D6-ICr"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="YNe-8J-1f5"/>
+                                <include reference="h47-Fb-3NZ"/>
+                                <include reference="qKI-ov-st1"/>
+                                <include reference="61V-61-4KT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="YOX-Fq-VDi"/>
+                                <include reference="ZuZ-0n-dHC"/>
+                                <include reference="rR2-DO-YYG"/>
+                                <include reference="e1z-tX-OXO"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +104,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="250" height="250"/>
+    </resources>
 </document>
