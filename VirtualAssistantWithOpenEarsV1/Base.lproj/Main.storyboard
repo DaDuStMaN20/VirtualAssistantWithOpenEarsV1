@@ -165,12 +165,13 @@
                     </view>
                     <connections>
                         <outlet property="microphoneImageView" destination="TJt-PH-uJv" id="JCT-D4-Hs8"/>
+                        <outlet property="textLabel" destination="6nF-XQ-XG3" id="3cs-Jo-gq8"/>
                         <outlet property="waitLabel" destination="6nF-XQ-XG3" id="lO8-1x-YPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ho-g3-VlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="108"/>
+            <point key="canvasLocation" x="1065" y="94"/>
         </scene>
     </scenes>
     <resources>

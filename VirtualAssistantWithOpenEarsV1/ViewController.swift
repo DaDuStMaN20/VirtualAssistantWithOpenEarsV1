@@ -124,6 +124,8 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     func pocketsphinxDidStartListening() {
         print("I Started to listen")
+        
+        
     }
     
     func pocketsphinxDidDetectSpeech() {

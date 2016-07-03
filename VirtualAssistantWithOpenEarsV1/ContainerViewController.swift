@@ -13,7 +13,8 @@ class ContainerViewController: UIViewController{
     
     //MARK: Properties
     
-    @IBOutlet weak var waitLabel: UILabel!
+    
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var microphoneImageView: UIImageView!
     
     
@@ -41,4 +42,13 @@ class ContainerViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func changeToPleaseWait(){
+        textLabel.text = "Please Wait . . ."
+    }
+    
+    func changeToListening(){
+        textLabel.text = "What Can I Help You With?"
+    }
+    
 }
