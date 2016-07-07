@@ -196,10 +196,12 @@
 					DA19213D1D1E412F00C8D985 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7XYENDV88P;
+						LastSwiftMigration = 0800;
 					};
 					DA1921511D1E413000C8D985 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7XYENDV88P;
+						LastSwiftMigration = 0800;
 						TestTargetID = DA19213D1D1E412F00C8D985;
 					};
 				};
@@ -394,10 +396,13 @@
 					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = VirtualAssistantWithOpenEarsV1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dustin.VirtualAssistantWithOpenEarsV1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VirtualAssistantWithOpenEarsV1/VirtualAssistantWithOpenEarsV1-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -410,10 +415,13 @@
 					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = VirtualAssistantWithOpenEarsV1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dustin.VirtualAssistantWithOpenEarsV1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VirtualAssistantWithOpenEarsV1/VirtualAssistantWithOpenEarsV1-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -429,6 +437,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dustin.VirtualAssistantWithOpenEarsV1Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VirtualAssistantWithOpenEarsV1.app/VirtualAssistantWithOpenEarsV1";
 			};
 			name = Debug;
@@ -445,6 +454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dustin.VirtualAssistantWithOpenEarsV1Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VirtualAssistantWithOpenEarsV1.app/VirtualAssistantWithOpenEarsV1";
 			};
 			name = Release;
@@ -468,6 +478,7 @@
 				DA19215D1D1E413000C8D985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA19215E1D1E413000C8D985 /* Build configuration list for PBXNativeTarget "VirtualAssistantWithOpenEarsV1Tests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +487,7 @@
 				DA1921601D1E413000C8D985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

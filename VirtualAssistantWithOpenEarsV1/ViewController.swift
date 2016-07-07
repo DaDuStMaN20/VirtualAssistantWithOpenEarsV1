@@ -25,7 +25,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     
     //create the model path using the pathForResource (which will get the path of the files on the device
-    let modelPath: String = NSBundle.mainBundle().pathForResource("AcousticModelEnglish", ofType: "bundle")!
+    let modelPath: String = Bundle.main.pathForResource("AcousticModelEnglish", ofType: "bundle")!
     
     
     @IBOutlet weak var talkButton: UIButton!
@@ -50,7 +50,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     
     //MARK: Actions
-    @IBAction func talkButtonAction(sender: UIButton) {
+    @IBAction func talkButtonAction(_ sender: UIButton) {
         stopListening()
         startRecognition()
     }
@@ -70,8 +70,8 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
         //convert the dictionary file
         do{
-            let dictionaryFile = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("MyCustomDictionary", ofType: "txt")!, encoding: NSUTF8StringEncoding)
-            words = dictionaryFile.componentsSeparatedByString("\n")
+            let dictionaryFile = try String(contentsOfFile: Bundle.main.pathForResource("MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
+            words = dictionaryFile.components(separatedBy: "\n")
         }
         catch let e as NSError{
             print("Something went wrong with the dictionary file: " + e.description)
@@ -83,13 +83,13 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
         
         
-        err = lmGenerator.generateLanguageModelFromArray(words, withFilesNamed:name, forAcousticModelAtPath: modelPath)
+        err = lmGenerator.generateLanguageModel(from: words, withFilesNamed:name, forAcousticModelAtPath: modelPath)
         
         
         
         if (err == nil) {
-            lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModelWithRequestedName(name)
-            dicPath = lmGenerator.pathToSuccessfullyGeneratedDictionaryWithRequestedName(name)
+            lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModel(withRequestedName: name)
+            dicPath = lmGenerator.pathToSuccessfullyGeneratedDictionary(withRequestedName: name)
         } else {
             print("Error: " + err.localizedDescription)
         }
@@ -105,7 +105,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
         //MARK: Start Recognition
         
-        OEPocketsphinxController.sharedInstance().startListeningWithLanguageModelAtPath(lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: modelPath, languageModelIsJSGF: false)
+        OEPocketsphinxController.sharedInstance().startListeningWithLanguageModel(atPath: lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: modelPath, languageModelIsJSGF: false)
         
         
         
@@ -118,7 +118,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     //MARK: Observer Functions
     
-    func pocketsphinxDidReceiveHypothesis(hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
+    func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
         print("Received Hypothesis: " + hypothesis + " with a recognition score of " + recognitionScore + " and an ID of ", utteranceID)
     }
     
@@ -165,7 +165,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         print("Pocketsphinx is now using the following language model: " + newLanguageModelPathAsString + "\n and the following dictionary: ", newDictionaryPathAsString)
     }
     
-    func pocketSphinxContinuousSetupDidFailWithReason(reasonForFailure: String!) {
+    func pocketSphinxContinuousTeardownDidFail(withReason reasonForFailure: String!) {
         print("Listening setup wasn't successful and returned the failure reason: ", reasonForFailure)
     }
     
