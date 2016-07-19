@@ -3,79 +3,79 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iris_icon_iphone6.png",
+      "filename" : "iris_icon_58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iris_icon_iphone6plus.png",
+      "filename" : "iris_icon_87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iris_icon_iphone6-1.png",
+      "filename" : "iris_icon_80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iris_icon_iphone6plus-1.png",
+      "filename" : "iris_icon_120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iris_icon_iphone6-2.png",
+      "filename" : "iris_icon_120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iris_icon_iphone6plus-2.png",
+      "filename" : "iris_icon_180.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadmini-1.png",
+      "filename" : "iris_icon_29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadpro-1.png",
+      "filename" : "iris_icon_58-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadpro-2.png",
+      "filename" : "iris_icon_40.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadmini-2.png",
+      "filename" : "iris_icon_80-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadmini-3.png",
+      "filename" : "iris_icon_76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadpro.png",
+      "filename" : "iris_icon_152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "iris_icon_ipadmini.png",
+      "filename" : "iris_icon_167.png",
       "scale" : "2x"
     }
   ],
