@@ -24,6 +24,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     //create the model path using the pathForResource (which will get the path of the files on the device
     let modelPath: String = Bundle.main.pathForResource("AcousticModelEnglish", ofType: "bundle")!
+    
+    var hypothesis = ""                                 //hypothesis from recognition
+    var recognitionScore = 0                            //recognition score (the closer to 0 the more accurate
 
     
     
@@ -57,6 +60,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         microphoneImageView.animationDuration = 0.6
         microphoneImageView.startAnimating()
+        
+        //start recognition
+        startRecognition()
     }
     
     override func shouldAutorotate() -> Bool {
@@ -129,6 +135,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             print("Error with recogniton")
         }
         
+        OEPocketsphinxController.sharedInstance().secondsOfSilenceToDetect = 1.1
+        
+        
         //MARK: Start Recognition
         
         OEPocketsphinxController.sharedInstance().startListeningWithLanguageModel(atPath: lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: modelPath, languageModelIsJSGF: false)
@@ -139,6 +148,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     func stopListening(){
         OEPocketsphinxController.sharedInstance().stopListening
+        
     }
     
     
@@ -146,6 +156,8 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
         print("Received Hypothesis: " + hypothesis + " with a recognition score of " + recognitionScore + " and an ID of ", utteranceID)
+        
+        self.hypothesis = hypothesis
     }
     
     func pocketsphinxDidStartListening() {
@@ -168,6 +180,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             stopListening()
         }
         
+        OEPocketsphinxController.sharedInstance().suspendRecognition()
+        
+        
         didDetectSpeech = false
         
         /* TIMER CODE (NOT NECESSARY, BUT MAY BE USEFUL
@@ -177,10 +192,39 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     func pocketsphinxDidStopListening() {
         print("I stopped listening")
+        
     }
     
     func pocketsphinxDidSuspendRecognition() {
         print("suspended recogniton")
+        
+        //check to see if the word was recognized even remotely accurately.
+        
+        if recognitionScore < -100000 {
+            let refreshAlert = UIAlertController(title: "Accurate", message: "Did you say" + hypothesis, preferredStyle: UIAlertControllerStyle.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                print("was accurate")
+                self.stopListening()
+                //put data in the database
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action: UIAlertAction!) in
+                print("was not accurate")
+                OEPocketsphinxController.sharedInstance().resumeRecognition()
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
+            
+            refreshAlert.show()
+        } else {
+            stopListening()
+            //put data in database
+        }
+        
+        
+        
+        
     }
     
     func pocketsphinxDidResumeRecognition() {
