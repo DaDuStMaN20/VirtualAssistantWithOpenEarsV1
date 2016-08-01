@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-VT-Zph">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Iris Logo" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-VT-Zph">
                                 <frame key="frameInset" minX="67" minY="219" width="240" height="228"/>
                             </imageView>
                         </subviews>
@@ -71,6 +71,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="250" height="250"/>
+        <image name="Iris Logo" width="250" height="250"/>
     </resources>
 </document>

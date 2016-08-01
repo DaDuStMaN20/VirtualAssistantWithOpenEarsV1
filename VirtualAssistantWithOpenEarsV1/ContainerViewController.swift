@@ -147,7 +147,17 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     }
     
     func stopListening(){
+        
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let recognition = NSEntityDescription.insertNewObject(forEntityName: "Recgonition", into: context)
+        recognition.setValue(utterance, forKey: "Utterance")
+        
+        
         OEPocketsphinxController.sharedInstance().stopListening
+        //put data in the database
+        
         
     }
     
@@ -158,6 +168,8 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         print("Received Hypothesis: " + hypothesis + " with a recognition score of " + recognitionScore + " and an ID of ", utteranceID)
         
         self.hypothesis = hypothesis
+        self.recognitionScore = recognitionScore
+        
     }
     
     func pocketsphinxDidStartListening() {
@@ -206,7 +218,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 print("was accurate")
                 self.stopListening()
-                //put data in the database
+                
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action: UIAlertAction!) in
@@ -219,7 +231,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             refreshAlert.show()
         } else {
             stopListening()
-            //put data in database
+            
         }
         
         
