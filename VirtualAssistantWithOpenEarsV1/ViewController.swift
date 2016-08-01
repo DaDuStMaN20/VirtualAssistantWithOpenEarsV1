@@ -42,6 +42,14 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
         
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

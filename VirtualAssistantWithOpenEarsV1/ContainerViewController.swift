@@ -14,6 +14,7 @@ class ContainerViewController: UIViewController{
     //MARK: Properties
     
     
+    
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var microphoneImageView: UIImageView!
     
@@ -37,6 +38,15 @@ class ContainerViewController: UIViewController{
         microphoneImageView.animationDuration = 0.5
         microphoneImageView.startAnimating()
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

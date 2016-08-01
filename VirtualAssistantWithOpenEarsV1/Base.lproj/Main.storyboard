@@ -104,6 +104,10 @@
                             <constraint firstItem="ERv-JM-SRw" firstAttribute="top" secondItem="LIr-RW-qaa" secondAttribute="bottom" constant="59" id="zdW-uw-NzT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="microphoneImageView" destination="TJt-PH-uJv" id="Uon-ab-0Cf"/>
+                        <outlet property="textLabel" destination="6nF-XQ-XG3" id="am7-VC-LbY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa6-0D-zcc" sceneMemberID="firstResponder"/>
             </objects>
