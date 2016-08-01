@@ -2,15 +2,20 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11198.3" systemVersion="16A254g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Dictionary" syncable="YES" codeGenerationType="class">
         <attribute name="dictionary_name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" syncable="YES"/>
+        <relationship name="word" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Word" inverseName="dictionary" inverseEntity="Word" syncable="YES"/>
     </entity>
-    <entity name="Recogniton" syncable="YES" codeGenerationType="class"/>
+    <entity name="Recogniton" syncable="YES" codeGenerationType="class">
+        <attribute name="hypothesis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recognitionScore" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="utteranceID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Word" syncable="YES" codeGenerationType="class">
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dictionary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dictionary" inverseName="word" inverseEntity="Dictionary" syncable="YES"/>
     </entity>
     <elements>
         <element name="Dictionary" positionX="-63" positionY="-5202" width="128" height="73"/>
-        <element name="Word" positionX="135" positionY="-5196" width="128" height="58"/>
-        <element name="Recogniton" positionX="36" positionY="-5175" width="128" height="45"/>
+        <element name="Recogniton" positionX="196" positionY="-5202" width="128" height="88"/>
+        <element name="Word" positionX="-162" positionY="-5044" width="126" height="73"/>
     </elements>
 </model>
