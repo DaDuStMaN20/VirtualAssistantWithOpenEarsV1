@@ -33,9 +33,17 @@ class ContainerViewController: UIViewController{
             UIImage(named: "microphone_6.png")!,
             UIImage(named: "microphone_7.png")!,
             UIImage(named: "microphone_8.png")!,
+            UIImage(named: "microphone_7.png")!,
+            UIImage(named: "microphone_6.png")!,
+            UIImage(named: "microphone_5.png")!,
+            UIImage(named: "microphone_4.png")!,
+            UIImage(named: "microphone_3.png")!,
+            UIImage(named: "microphone_2.png")!,
+            UIImage(named: "microphone_1.png")!,
+            UIImage(named: "microphone.png")!,
         ]
         
-        microphoneImageView.animationDuration = 0.5
+        microphoneImageView.animationDuration = 0.6
         microphoneImageView.startAnimating()
     }
     
