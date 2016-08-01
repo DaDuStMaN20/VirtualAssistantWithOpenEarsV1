@@ -148,16 +148,15 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     func stopListening(){
         
-        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDel.managedObjectContext
-        
-        let recognition = NSEntityDescription.insertNewObject(forEntityName: "Recgonition", into: context)
-        recognition.setValue(utterance, forKey: "Utterance")
-        
+        let appDel: AppDelegate = UIApplication.shared().delegate as! AppDelegate
+        let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
         
         OEPocketsphinxController.sharedInstance().stopListening
-        //put data in the database
         
+        //put data in the database
+        let recognition = NSEntityDescription.insertNewObject(forEntityName: "Recgonition", into: context)
+        recognition.setValue(hypothesis, forKey: "hypothesis")
+        recognition.setValue(recognitionScore, forKey: "recognitionScore")
         
     }
     
@@ -168,7 +167,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         print("Received Hypothesis: " + hypothesis + " with a recognition score of " + recognitionScore + " and an ID of ", utteranceID)
         
         self.hypothesis = hypothesis
-        self.recognitionScore = recognitionScore
+        self.recognitionScore = Int(recognitionScore)!
         
     }
     
@@ -228,7 +227,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             
             present(refreshAlert, animated: true, completion: nil)
             
-            refreshAlert.show()
+            
         } else {
             stopListening()
             
