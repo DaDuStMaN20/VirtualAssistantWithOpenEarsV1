@@ -21,7 +21,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     var openEarsEventsObserver: OEEventsObserver! = nil //The Open Ears Observer
     var didDetectSpeech: Bool = false                   //Keeps track of if speech is detected (for utterance end purposes)
     
-    @IBOutlet weak var recognitionContainer: UIView!
+    
     
     
     //create the model path using the pathForResource (which will get the path of the files on the device
@@ -51,8 +51,13 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     //MARK: Actions
     @IBAction func talkButtonAction(_ sender: UIButton) {
+        
+        /*
         stopListening()
         startRecognition()
+         */
+        
+        
     }
     
     //MARK: Recognition Start and Stop Functions
