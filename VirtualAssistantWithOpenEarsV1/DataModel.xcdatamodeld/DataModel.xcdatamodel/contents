@@ -4,11 +4,13 @@
         <attribute name="dictionary_name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" syncable="YES"/>
     </entity>
+    <entity name="Recogniton" syncable="YES" codeGenerationType="class"/>
     <entity name="Word" syncable="YES" codeGenerationType="class">
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Dictionary" positionX="-63" positionY="-5202" width="128" height="73"/>
         <element name="Word" positionX="135" positionY="-5196" width="128" height="58"/>
+        <element name="Recogniton" positionX="36" positionY="-5175" width="128" height="45"/>
     </elements>
 </model>
