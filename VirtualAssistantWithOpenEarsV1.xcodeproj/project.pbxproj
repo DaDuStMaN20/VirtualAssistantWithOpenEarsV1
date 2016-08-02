@@ -28,8 +28,8 @@
 		DA1921991D21E18200C8D985 /* MyCustomDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */; };
 		DA19219B1D2221F100C8D985 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA19219A1D2221F100C8D985 /* ContainerViewController.swift */; };
 		DA19219C1D2221F100C8D985 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA19219A1D2221F100C8D985 /* ContainerViewController.swift */; };
-		DA96ED821D50114F0029C319 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA96ED801D50114F0029C319 /* DataModel.xcdatamodeld */; };
 		DA96ED841D501A190029C319 /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96ED831D501A190029C319 /* RecognizedViewController.swift */; };
+		DA96ED871D5028570029C319 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA96ED851D5028570029C319 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,8 @@
 		DA19218F1D21932000C8D985 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MyCustomDictionary.txt; sourceTree = "<group>"; };
 		DA19219A1D2221F100C8D985 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		DA96ED811D50114F0029C319 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		DA96ED831D501A190029C319 /* RecognizedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
+		DA96ED861D5028570029C319 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 				DA96ED831D501A190029C319 /* RecognizedViewController.swift */,
 				DA19219A1D2221F100C8D985 /* ContainerViewController.swift */,
 				DA1921481D1E412F00C8D985 /* Assets.xcassets */,
-				DA96ED801D50114F0029C319 /* DataModel.xcdatamodeld */,
+				DA96ED851D5028570029C319 /* DataModel.xcdatamodeld */,
 				DA19214A1D1E412F00C8D985 /* LaunchScreen.storyboard */,
 				DA19214D1D1E412F00C8D985 /* Info.plist */,
 				DA19216B1D1E428E00C8D985 /* VirtualAssistantWithOpenEarsV1-Bridging-Header.h */,
@@ -262,8 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1921441D1E412F00C8D985 /* ViewController.swift in Sources */,
-				DA96ED821D50114F0029C319 /* DataModel.xcdatamodeld in Sources */,
 				DA19219B1D2221F100C8D985 /* ContainerViewController.swift in Sources */,
+				DA96ED871D5028570029C319 /* DataModel.xcdatamodeld in Sources */,
 				DA1921421D1E412F00C8D985 /* AppDelegate.swift in Sources */,
 				DA96ED841D501A190029C319 /* RecognizedViewController.swift in Sources */,
 			);
@@ -502,12 +502,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DA96ED801D50114F0029C319 /* DataModel.xcdatamodeld */ = {
+		DA96ED851D5028570029C319 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DA96ED811D50114F0029C319 /* DataModel.xcdatamodel */,
+				DA96ED861D5028570029C319 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = DA96ED811D50114F0029C319 /* DataModel.xcdatamodel */;
+			currentVersion = DA96ED861D5028570029C319 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

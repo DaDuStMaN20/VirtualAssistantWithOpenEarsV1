@@ -25,16 +25,17 @@ class RecognizedViewController: UIViewController{
         
         do{
             
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recognizion")
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recognition")
             let results = try context.fetch(request)
             
             if results.count > 0{
                 for item in results as! [NSManagedObject]{
-                    let hypothesisResult = item.value(forKey: "hypothesis")
-                    let recognitionScoreResult = item.value(forKey: "recognitionScore")
+                    let hypothesisResult = item.value(forKey: "hypothesis") as! String
+                    let recognitionScoreResult = item.value(forKey: "recognitionScore") as! NSNumber
                     
-                    hypothesis.append(String(hypothesisResult))
+                    hypothesis.append(hypothesisResult)
                     recognitionScore.append(String(recognitionScoreResult))
+                    print(hypothesisResult)
                     
                 }
             }
@@ -42,10 +43,12 @@ class RecognizedViewController: UIViewController{
             
             
         } catch {
-            
+            print("something went wrong with the retrieval of the data")
         }
         
-        
+        //add text to the results page
+        // Will be modified once other methods are made. This is for testing purposes.
+        resultLabel.text = "\nYou said: " + hypothesis[hypothesis.count-1]
         
         
         

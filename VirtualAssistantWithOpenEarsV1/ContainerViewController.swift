@@ -25,9 +25,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     //create the model path using the pathForResource (which will get the path of the files on the device
     let modelPath: String = Bundle.main.pathForResource("AcousticModelEnglish", ofType: "bundle")!
     
-    var hypothesis = ""                                 //hypothesis from recognition
-    var recognitionScore = 0                            //recognition score (the closer to 0 the more accurate
-
+    var hypothesisData = ""                                 //hypothesis from recognition
+    var recognitionScoreData = 0                            //recognition score (the closer to 0 the more accurate
+    var correct = false
     
     
     @IBOutlet weak var textLabel: UILabel!
@@ -63,6 +63,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         //start recognition
         startRecognition()
+        changeToListening()
     }
     
     override func shouldAutorotate() -> Bool {
@@ -148,22 +149,37 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     func stopListening(){
         
-        let appDel: AppDelegate = UIApplication.shared().delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
-        
-        OEPocketsphinxController.sharedInstance().stopListening
-        
-        //put data in the database
-        let recognition = NSEntityDescription.insertNewObject(forEntityName: "Recgonition", into: context)
-        recognition.setValue(hypothesis, forKey: "hypothesis")
-        recognition.setValue(recognitionScore, forKey: "recognitionScore")
-        
-        do{
-            try context.save()
+        if correct{
+            _ = OEPocketsphinxController.sharedInstance().stopListening
             
-        } catch {
-            print("There was a problem saving data")
+            let appDel: AppDelegate = UIApplication.shared().delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+            
+            //put data in the database
+            let recognition = NSEntityDescription.insertNewObject(forEntityName: "Recognition", into: context)
+            recognition.setValue(hypothesisData, forKey: "hypothesis")
+            recognition.setValue(recognitionScoreData, forKey: "recognitionScore")
+            
+            do{
+                try context.save()
+                
+            } catch {
+                print("There was a problem saving data")
+            }
+            
+            
+            //go to the results page
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Recognized") as UIViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
         }
+
+        
+         //OEPocketsphinxController.sharedInstance().suspendRecognition()
+        //_ = OEPocketsphinxController.sharedInstance().stopListening
+        
         
     }
     
@@ -173,8 +189,16 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
         print("Received Hypothesis: " + hypothesis + " with a recognition score of " + recognitionScore + " and an ID of ", utteranceID)
         
-        self.hypothesis = hypothesis
-        self.recognitionScore = Int(recognitionScore)!
+        hypothesisData = hypothesis
+        recognitionScoreData = Int(recognitionScore)!
+        
+        OEPocketsphinxController.sharedInstance().suspendRecognition()
+        
+        
+        
+        
+
+        
         
     }
     
@@ -193,15 +217,15 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         
         print("Utterance Concluded")
-        //if it does not detect anymore speech, it will stop listening
-        if didDetectSpeech == false{
-            stopListening()
-        }
-        
-        OEPocketsphinxController.sharedInstance().suspendRecognition()
         
         
-        didDetectSpeech = false
+        
+        
+        
+        
+        
+        
+        
         
         /* TIMER CODE (NOT NECESSARY, BUT MAY BE USEFUL
          var timer = NSTimer()
@@ -216,13 +240,16 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     func pocketsphinxDidSuspendRecognition() {
         print("suspended recogniton")
         
-        //check to see if the word was recognized even remotely accurately.
         
-        if recognitionScore < -100000 {
-            let refreshAlert = UIAlertController(title: "Accurate", message: "Did you say" + hypothesis, preferredStyle: UIAlertControllerStyle.alert)
+        
+        //check to see if the word was recognized even remotely accurately.
+        //I may need to change this value and fine tune it
+        if recognitionScoreData < -100000 {
+            let refreshAlert = UIAlertController(title: "Accurate", message: "Did you say " + hypothesisData, preferredStyle: UIAlertControllerStyle.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 print("was accurate")
+                self.correct = true
                 self.stopListening()
                 
             }))
@@ -230,13 +257,15 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             refreshAlert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action: UIAlertAction!) in
                 print("was not accurate")
                 OEPocketsphinxController.sharedInstance().resumeRecognition()
+                self.correct = false
             }))
             
-            present(refreshAlert, animated: true, completion: nil)
+            self.present(refreshAlert, animated: true, completion: nil)
             
             
         } else {
-            stopListening()
+            correct = true
+            self.stopListening()
             
         }
         
