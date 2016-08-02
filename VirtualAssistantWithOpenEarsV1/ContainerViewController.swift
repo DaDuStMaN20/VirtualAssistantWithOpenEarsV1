@@ -158,6 +158,13 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         recognition.setValue(hypothesis, forKey: "hypothesis")
         recognition.setValue(recognitionScore, forKey: "recognitionScore")
         
+        do{
+            try context.save()
+            
+        } catch {
+            print("There was a problem saving data")
+        }
+        
     }
     
     
