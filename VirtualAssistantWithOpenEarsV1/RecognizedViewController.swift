@@ -20,7 +20,7 @@ class RecognizedViewController: UIViewController{
     @IBOutlet weak var resultLabel: UILabel!
     
     override func viewDidLoad() {
-        let appDel: AppDelegate = UIApplication.shared().delegate as! AppDelegate
+        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
         
         do{
@@ -34,7 +34,7 @@ class RecognizedViewController: UIViewController{
                     let recognitionScoreResult = item.value(forKey: "recognitionScore") as! NSNumber
                     
                     hypothesis.append(hypothesisResult)
-                    recognitionScore.append(String(recognitionScoreResult))
+                    recognitionScore.append(String(describing: recognitionScoreResult))
                     print(hypothesisResult)
                     
                 }
@@ -55,13 +55,17 @@ class RecognizedViewController: UIViewController{
         
     }
     
-    override func shouldAutorotate() -> Bool {
+    //Redo orientation lock
+    
+    /*
+    func shouldAutorotate() -> Bool {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
+     */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
