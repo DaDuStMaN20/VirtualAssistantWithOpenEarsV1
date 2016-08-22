@@ -125,7 +125,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     }
     
     func stopListening(){
-        OEPocketsphinxController.sharedInstance().stopListening
+        _ = OEPocketsphinxController.sharedInstance().stopListening
     }
     
     
