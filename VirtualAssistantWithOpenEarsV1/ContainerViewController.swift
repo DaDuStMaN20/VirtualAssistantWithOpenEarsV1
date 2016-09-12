@@ -85,7 +85,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     }
     
     func changeToListening(){
-        textLabel.text = "What Can I Help You With?"
+        textLabel.text = "How Can I HelP?"
     }
     
     //MARK: Recognition Start and Stop Functions
@@ -194,10 +194,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         OEPocketsphinxController.sharedInstance().suspendRecognition()
         
-        
-        
-        
-
+    
         
         
     }
@@ -217,15 +214,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         
         print("Utterance Concluded")
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
         
         /* TIMER CODE (NOT NECESSARY, BUT MAY BE USEFUL
          var timer = NSTimer()
