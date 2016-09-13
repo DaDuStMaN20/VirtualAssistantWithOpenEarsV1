@@ -56,7 +56,9 @@ class RecognizedViewController: UIViewController{
         
         
         for i in 0 ..< resultAfterSplit.count{
-            
+            //Try the math functions without the check to isNumeric, but do it in a do catch loop. if it hits the catch block, just continue and do nothing
+            //Only put a "I did not understand what you said" at the last one. 
+            //Or you could do a try catch inside of the catch to see if there was a two word operation (divided by)
         }
         
         
