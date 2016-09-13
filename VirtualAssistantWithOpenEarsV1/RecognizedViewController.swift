@@ -16,12 +16,16 @@ class RecognizedViewController: UIViewController{
     var hypothesis: [String] = []
     var recognitionScore: [String] = []
     
+    var resultAfterSplit: [String] = []
+    
     
     @IBOutlet weak var resultLabel: UILabel!
     
     override func viewDidLoad() {
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+        
+        
         
         do{
             
@@ -46,8 +50,18 @@ class RecognizedViewController: UIViewController{
             print("something went wrong with the retrieval of the data")
         }
         
+        //split the hypothesis
+        
+        resultAfterSplit = hypothesis[hypothesis.count-1].characters.split{$0 == " "}.map(String.init)
+        
+        
+        for i in 0 ..< resultAfterSplit.count{
+            
+        }
+        
+        
         //add text to the results page
-        // Will be modified once other methods are made. This is for testing purposes.
+        //Will be modified once other methods are made. This is for testing purposes.
         resultLabel.text = "\nYou said: " + hypothesis[hypothesis.count-1]
         
         
@@ -66,6 +80,10 @@ class RecognizedViewController: UIViewController{
         return UIInterfaceOrientationMask.portrait
     }
      */
+    
+    func math(){
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
