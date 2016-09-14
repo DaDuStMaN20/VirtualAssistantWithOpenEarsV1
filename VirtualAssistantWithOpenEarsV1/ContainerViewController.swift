@@ -78,7 +78,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     }
     
     func changeToListening(){
-        textLabel.text = "How Can I HelP?"
+        textLabel.text = "How Can I Help?"
     }
     
     //MARK: Recognition Start and Stop Functions
