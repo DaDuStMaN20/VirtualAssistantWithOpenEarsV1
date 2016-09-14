@@ -25,7 +25,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
     
     
     //create the model path using the pathForResource (which will get the path of the files on the device
-    let modelPath: String = Bundle.main.pathForResource("AcousticModelEnglish", ofType: "bundle")!
+    let modelPath: String = Bundle.main.path(forResource: "AcousticModelEnglish", ofType: "bundle")!
     
     
     @IBOutlet weak var talkButton: UIButton!
@@ -43,14 +43,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
     }
     
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait
-    }
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,7 +76,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
         //convert the dictionary file
         do{
-            let dictionaryFile = try String(contentsOfFile: Bundle.main.pathForResource("MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
+            let dictionaryFile = try String(contentsOfFile: Bundle.main.path(forResource: "MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
             words = dictionaryFile.components(separatedBy: "\n")
         }
         catch let e as NSError{
@@ -96,7 +89,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
         
         
         
-        err = lmGenerator.generateLanguageModel(from: words, withFilesNamed:name, forAcousticModelAtPath: modelPath)
+        err = lmGenerator.generateLanguageModel(from: words, withFilesNamed:name, forAcousticModelAtPath: modelPath) as NSError!
         
         
         

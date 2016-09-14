@@ -23,7 +23,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     var didDetectSpeech: Bool = false                   //Keeps track of if speech is detected (for utterance end purposes)
     
     //create the model path using the pathForResource (which will get the path of the files on the device
-    let modelPath: String = Bundle.main.pathForResource("AcousticModelEnglish", ofType: "bundle")!
+    let modelPath: String = Bundle.main.path(forResource: "AcousticModelEnglish", ofType: "bundle")!
     
     var hypothesisData = ""                                 //hypothesis from recognition
     var recognitionScoreData = 0                            //recognition score (the closer to 0 the more accurate
@@ -66,14 +66,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         changeToListening()
     }
     
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait
-    }
-
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,7 +96,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         //convert the dictionary file
         do{
-            let dictionaryFile = try String(contentsOfFile: Bundle.main.pathForResource("MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
+            let dictionaryFile = try String(contentsOfFile: Bundle.main.path(forResource: "MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
             words = dictionaryFile.components(separatedBy: "\n")
         }
         catch let e as NSError{
@@ -116,7 +109,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         
         
-        err = lmGenerator.generateLanguageModel(from: words, withFilesNamed:name, forAcousticModelAtPath: modelPath)
+        err = lmGenerator.generateLanguageModel(from: words, withFilesNamed:name, forAcousticModelAtPath: modelPath) as NSError!
         
         
         
@@ -152,7 +145,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         if correct{
             _ = OEPocketsphinxController.sharedInstance().stopListening
             
-            let appDel: AppDelegate = UIApplication.shared().delegate as! AppDelegate
+            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
             
             //put data in the database
