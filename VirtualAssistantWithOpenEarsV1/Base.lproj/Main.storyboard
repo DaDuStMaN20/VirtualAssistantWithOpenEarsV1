@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="16A254g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A322" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GBv-ey-UbG">
@@ -60,19 +60,16 @@
                         <viewControllerLayoutGuide type="bottom" id="sAF-Vn-gws"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rCH-4z-xKF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-gu-xyB">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Iris, Your offline Virtual Assistant" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9Y-Vx-3dl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go ahead and ask me a question!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9Y-Vx-3dl">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okD-Jp-l7l">
-                                        <state key="normal" title="Tap Here to talk to me!"/>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Translucent Blue Background" translatesAutoresizingMaskIntoConstraints="NO" id="ERv-JM-SRw"/>
@@ -112,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa6-0D-zcc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="318"/>
+            <point key="canvasLocation" x="1233" y="318"/>
         </scene>
         <!--Recognized View Controller-->
         <scene sceneID="ECT-ey-C1z">
@@ -123,7 +120,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qeW-tS-dgq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="F0P-hV-SC6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l4W-qS-e7I">
@@ -134,7 +131,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2j-dP-T6P">
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Tap Here to talk to me!"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rZ6-9T-qc4" appends="YES" id="gLa-Li-rc1"/>
+                                            <segue destination="9Wa-WR-Elq" kind="show" id="lXh-zF-swe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -162,11 +164,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7h-YO-8Kh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rZ6-9T-qc4"/>
             </objects>
-            <point key="canvasLocation" x="1286.9565217391305" y="-409.23913043478262"/>
+            <point key="canvasLocation" x="2271" y="318"/>
         </scene>
     </scenes>
     <resources>
         <image name="Translucent Blue Background" width="144" height="144"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lXh-zF-swe"/>
+    </inferredMetricsTieBreakers>
 </document>
