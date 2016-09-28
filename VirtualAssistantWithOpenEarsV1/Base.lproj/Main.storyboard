@@ -35,6 +35,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please bare with me, I need a bit of time to think" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Ig-sHg">
+                                <frame key="frameInset" minX="16" minY="280" width="343" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -49,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444" y="318"/>
+            <point key="canvasLocation" x="444" y="317.99100449775113"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="aeo-nS-z1Z">
@@ -125,7 +132,7 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l4W-qS-e7I">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Iris, Your offline Virtual Assistant" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXe-dy-vYP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have anymore questions, I am here!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXe-dy-vYP">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -134,8 +141,7 @@
                                         <gestureRecognizers/>
                                         <state key="normal" title="Tap Here to talk to me!"/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="rZ6-9T-qc4" appends="YES" id="gLa-Li-rc1"/>
-                                            <segue destination="9Wa-WR-Elq" kind="show" id="lXh-zF-swe"/>
+                                            <segue destination="9Wa-WR-Elq" kind="show" id="xNJ-IA-71A"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -164,7 +170,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7h-YO-8Kh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="rZ6-9T-qc4"/>
             </objects>
             <point key="canvasLocation" x="2271" y="318"/>
         </scene>
@@ -173,6 +178,6 @@
         <image name="Translucent Blue Background" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lXh-zF-swe"/>
+        <segue reference="mrj-bs-wwA"/>
     </inferredMetricsTieBreakers>
 </document>
