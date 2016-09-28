@@ -28,6 +28,7 @@
 		DA1921991D21E18200C8D985 /* MyCustomDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */; };
 		DA19219B1D2221F100C8D985 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA19219A1D2221F100C8D985 /* ContainerViewController.swift */; };
 		DA19219C1D2221F100C8D985 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA19219A1D2221F100C8D985 /* ContainerViewController.swift */; };
+		DA3A27A91D9C528E0004C606 /* mathDict.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA3A27A81D9C528E0004C606 /* mathDict.txt */; };
 		DA96ED841D501A190029C319 /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96ED831D501A190029C319 /* RecognizedViewController.swift */; };
 		DA96ED871D5028570029C319 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA96ED851D5028570029C319 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		DA19218F1D21932000C8D985 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		DA1921971D21E18200C8D985 /* MyCustomDictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MyCustomDictionary.txt; sourceTree = "<group>"; };
 		DA19219A1D2221F100C8D985 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		DA3A27A81D9C528E0004C606 /* mathDict.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mathDict.txt; sourceTree = "<group>"; };
 		DA96ED831D501A190029C319 /* RecognizedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
 		DA96ED861D5028570029C319 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				DA19214A1D1E412F00C8D985 /* LaunchScreen.storyboard */,
 				DA19214D1D1E412F00C8D985 /* Info.plist */,
 				DA19216B1D1E428E00C8D985 /* VirtualAssistantWithOpenEarsV1-Bridging-Header.h */,
+				DA3A27A81D9C528E0004C606 /* mathDict.txt */,
 			);
 			path = VirtualAssistantWithOpenEarsV1;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				DA19214C1D1E412F00C8D985 /* LaunchScreen.storyboard in Resources */,
 				DA1921491D1E412F00C8D985 /* Assets.xcassets in Resources */,
 				DA1921891D1FABCF00C8D985 /* dictionary.txt in Resources */,
+				DA3A27A91D9C528E0004C606 /* mathDict.txt in Resources */,
 				DA1921901D21932000C8D985 /* AcousticModelEnglish.bundle in Resources */,
 				DA1921471D1E412F00C8D985 /* Main.storyboard in Resources */,
 				DA1921981D21E18200C8D985 /* MyCustomDictionary.txt in Resources */,

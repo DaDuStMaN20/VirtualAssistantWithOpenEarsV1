@@ -96,7 +96,8 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         //convert the dictionary file
         do{
-            let dictionaryFile = try String(contentsOfFile: Bundle.main.path(forResource: "MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
+            //let dictionaryFile = try String(contentsOfFile: Bundle.main.path(forResource: "MyCustomDictionary", ofType: "txt")!, encoding: String.Encoding.utf8)
+            let dictionaryFile = try String(contentsOfFile: Bundle.main.path(forResource: "mathDict", ofType: "txt")!, encoding: String.Encoding.utf8)
             words = dictionaryFile.components(separatedBy: "\n")
         }
         catch let e as NSError{
@@ -129,7 +130,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             print("Error with recogniton")
         }
         
-        OEPocketsphinxController.sharedInstance().secondsOfSilenceToDetect = 1.1
+        //set sphinxcontroller variables
+        OEPocketsphinxController.sharedInstance().secondsOfSilenceToDetect = 0.6        //seconds of silence before conclude utterance
+        OEPocketsphinxController.sharedInstance().vadThreshold = 3.0                    //the higher this number, the more background noise it will ignore
         
         
         //MARK: Start Recognition
