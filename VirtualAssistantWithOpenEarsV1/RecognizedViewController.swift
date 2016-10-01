@@ -13,11 +13,12 @@ import CoreData
 class RecognizedViewController: UIViewController{
     
     //MARK: Properties
-    var hypothesis: [String] = []           //Stores the hypotheses from the database
-    var recognitionScore: [String] = []     //Stores the recognition score from the database
-    var resultAfterSplit: [String] = []     //The results after the hypothesis is split into an array of separate words
-    var expression: String = ""             //The expression that is to be calculated
-    var result: Double = 0.0                //the result of the expression. Is also used to carry the result of the previous expressions
+    var hypothesis: [String] = []                                   //Stores the hypotheses from the database
+    var recognitionScore: [String] = []                             //Stores the recognition score from the database
+    var resultAfterSplit: [String] = []                             //The results after the hypothesis is split into an array of separate words
+    var equation: String = ""                                       //The expression that is to be calculated
+    var expression: NSExpression!                                   //The calculated expression
+    var result: Double = 0.0                                        //the result of the expression. Is also used to carry the result of the previous expressions
     
     
     
@@ -95,17 +96,56 @@ class RecognizedViewController: UIViewController{
     
     //MARK: Main Functions
     
+    //MARK: Math Function
     func math(){
+        
+        //reset the equation
+        equation = ""
+        
+        
         //look for math terms
         for i in 0 ..< resultAfterSplit.count{
             
-            //MARK Math Functions
+            
+            
             //safety check to stop null pointer exceptions.
             //look for someting before and after resultsAfterSplit[i]
             if i+1 < resultAfterSplit.count && i-1 >= 0{
                 
                 //Addition
-                
+                //check for operator
+                if resultAfterSplit[i] == "plus" || resultAfterSplit[i] == "+" {
+                    //check for numerics before and after operator
+                    if isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "+" + resultAfterSplit[i+1]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i-1
+                    if !isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) &&
+                        resultAfterSplit[i-1] == "this" ||
+                        resultAfterSplit[i-1] == "that" {
+                        
+                        //define the equation
+                        equation = String(result) + "+" + resultAfterSplit[i+1]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i+1
+                    if !isNumeric(num: resultAfterSplit[i+1]) &&
+                        isNumeric(num: resultAfterSplit[i-1]) &&
+                        resultAfterSplit[i+1] == "this" ||
+                        resultAfterSplit[i+1] == "that" {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "+" + String(result)
+                        
+                    }
+                }
                 
                 //Subtraction
                 
@@ -113,8 +153,14 @@ class RecognizedViewController: UIViewController{
                 
                 //Division
                 
+                
             }
             
+            //Calculate the result
+            if equation != "" {
+                expression = NSExpression(format: equation)
+                result = expression.expressionValue(with: nil, context: nil) as! Double
+            }
             
         }
 
