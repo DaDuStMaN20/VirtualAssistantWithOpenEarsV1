@@ -13,18 +13,19 @@ import CoreData
 class RecognizedViewController: UIViewController{
     
     //MARK: Properties
-    var hypothesis: [String] = []                                   //Stores the hypotheses from the database
-    var recognitionScore: [String] = []                             //Stores the recognition score from the database
-    var resultAfterSplit: [String] = []                             //The results after the hypothesis is split into an array of separate words
-    var equation: String = ""                                       //The expression that is to be calculated
-    var expression: NSExpression!                                   //The calculated expression
-    var result: Double = 0.0                                        //the result of the expression. Is also used to carry the result of the previous expressions
+    var hypothesis: [String] = []                                               //Stores the hypotheses from the database
+    var recognitionScore: [String] = []                                         //Stores the recognition score from the database
+    var resultAfterSplit: [String] = []                                         //The results after the hypothesis is split into an array of separate words
+    var equation: String = ""                                                   //The expression that is to be calculated
+    var expression: NSExpression!                                               //The calculated expression
+    var result: Double = 0.0                                                    //the result of the expression. Is also used to carry the result of the previous expressions
     
     
     
     @IBOutlet weak var resultLabel: UILabel!
     
     override func viewDidLoad() {
+        
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
         
@@ -32,8 +33,8 @@ class RecognizedViewController: UIViewController{
         //MARK: Data Retrieval
         do{
             
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recognition")
-            let results = try context.fetch(request)
+            var request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recognition")
+            var results = try context.fetch(request)
             
             //if results isnt empty
             if results.count > 0{
@@ -47,6 +48,22 @@ class RecognizedViewController: UIViewController{
                     
                 }
             }
+            
+            request = NSFetchRequest<NSFetchRequestResult>(entityName: "Math")
+            results = try context.fetch(request)
+            
+            //if results isnt empty
+            //will only store the last result
+            if results.count > 0{
+                for item in results as! [NSManagedObject]{
+                    result = item.value(forKey: "result") as! Double
+                    
+                    
+                    
+                    
+                }
+            }
+
             
             
             
@@ -98,6 +115,8 @@ class RecognizedViewController: UIViewController{
     
     //MARK: Math Function
     func math(){
+        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate         //Database stuff
+        let context: NSManagedObjectContext = appDel.persistentContainer.viewContext    //Database stuff
         
         //reset the equation
         equation = ""
@@ -161,6 +180,17 @@ class RecognizedViewController: UIViewController{
                 expression = NSExpression(format: equation)
                 result = expression.expressionValue(with: nil, context: nil) as! Double
                 resultLabel.text = "\nYour Answer is \(result)"
+                
+                //MARK: Write to database
+                let recognition = NSEntityDescription.insertNewObject(forEntityName: "Math", into: context)
+                recognition.setValue(result, forKey: "result")
+                
+                do{
+                    try context.save()
+                    
+                } catch {
+                    print("There was a problem saving data")
+                }
             }
             
             

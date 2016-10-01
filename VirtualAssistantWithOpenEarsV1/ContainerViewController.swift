@@ -151,7 +151,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
             
-            //put data in the database
+            //MARK: Write to database
             let recognition = NSEntityDescription.insertNewObject(forEntityName: "Recognition", into: context)
             recognition.setValue(hypothesisData, forKey: "hypothesis")
             recognition.setValue(recognitionScoreData, forKey: "recognitionScore")
