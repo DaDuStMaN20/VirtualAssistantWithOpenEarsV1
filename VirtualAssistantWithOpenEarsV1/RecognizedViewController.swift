@@ -168,9 +168,184 @@ class RecognizedViewController: UIViewController{
                 
                 //Subtraction
                 
+                //check for operator
+                if resultAfterSplit[i] == "minus" || resultAfterSplit[i] == "-" {
+                    //check for numerics before and after operator
+                    if isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "-" + resultAfterSplit[i+1]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i-1
+                    if !isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) &&
+                        resultAfterSplit[i-1] == "this" ||
+                        resultAfterSplit[i-1] == "that" {
+                        
+                        //define the equation
+                        equation = "\(result)-" + resultAfterSplit[i+1]
+                        print(equation)
+                    }
+                    
+                    //check for "that" or "this" in i+1
+                    if !isNumeric(num: resultAfterSplit[i+1]) &&
+                        isNumeric(num: resultAfterSplit[i-1]) &&
+                        resultAfterSplit[i+1] == "this" ||
+                        resultAfterSplit[i+1] == "that" {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "-\(result)"
+                        print(equation)
+                    }
+                }
+
+                
                 //Multiplication
                 
+                //check for one word operator
+                if resultAfterSplit[i] == "times" || resultAfterSplit[i] == "*" {
+                    //check for numerics before and after operator
+                    if isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "*" + resultAfterSplit[i+1]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i-1
+                    if !isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) &&
+                        resultAfterSplit[i-1] == "this" ||
+                        resultAfterSplit[i-1] == "that" {
+                        
+                        //define the equation
+                        equation = "\(result)*" + resultAfterSplit[i+1]
+                        print(equation)
+                    }
+                    
+                    //check for "that" or "this" in i+1
+                    if !isNumeric(num: resultAfterSplit[i+1]) &&
+                        isNumeric(num: resultAfterSplit[i-1]) &&
+                        resultAfterSplit[i+1] == "this" ||
+                        resultAfterSplit[i+1] == "that" {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "*\(result)"
+                        print(equation)
+                    }
+                }
+                
+                //check for two word operator
+                if i+2 < resultAfterSplit.count && (resultAfterSplit[i] == "multiplied" && resultAfterSplit[i+1] == "by") {
+                    //check for numerics before and after operator
+                    if isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "*" + resultAfterSplit[i+2]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i-1
+                    if !isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+2]) &&
+                        resultAfterSplit[i-1] == "this" ||
+                        resultAfterSplit[i-1] == "that" {
+                        
+                        //define the equation
+                        equation = "\(result)*" + resultAfterSplit[i+2]
+                        print(equation)
+                    }
+                    
+                    //check for "that" or "this" in i+1
+                    if !isNumeric(num: resultAfterSplit[i+2]) &&
+                        isNumeric(num: resultAfterSplit[i-1]) &&
+                        resultAfterSplit[i+2] == "this" ||
+                        resultAfterSplit[i+2] == "that" {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "*\(result)"
+                        print(equation)
+                    }
+
+                }
+
+                
                 //Division
+                //check for one word operator
+                if resultAfterSplit[i] == "/" {
+                    //check for numerics before and after operator
+                    if isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "/" + resultAfterSplit[i+1]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i-1
+                    if !isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) &&
+                        resultAfterSplit[i-1] == "this" ||
+                        resultAfterSplit[i-1] == "that" {
+                        
+                        //define the equation
+                        equation = "\(result)/" + resultAfterSplit[i+1]
+                        print(equation)
+                    }
+                    
+                    //check for "that" or "this" in i+1
+                    if !isNumeric(num: resultAfterSplit[i+1]) &&
+                        isNumeric(num: resultAfterSplit[i-1]) &&
+                        resultAfterSplit[i+1] == "this" ||
+                        resultAfterSplit[i+1] == "that" {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "/\(result)"
+                        print(equation)
+                    }
+                }
+                
+                //check for two word operator
+                if i+2 < resultAfterSplit.count && (resultAfterSplit[i] == "divided" && resultAfterSplit[i+1] == "by") ||
+                    (resultAfterSplit[i] == "out" && resultAfterSplit[i+1] == "of"){
+                    //check for numerics before and after operator
+                    if isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+1]) {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "/" + resultAfterSplit[i+2]
+                        
+                    }
+                    
+                    //check for "that" or "this" in i-1
+                    if !isNumeric(num: resultAfterSplit[i-1]) &&
+                        isNumeric(num: resultAfterSplit[i+2]) &&
+                        resultAfterSplit[i-1] == "this" ||
+                        resultAfterSplit[i-1] == "that" {
+                        
+                        //define the equation
+                        equation = "\(result)/" + resultAfterSplit[i+2]
+                        print(equation)
+                    }
+                    
+                    //check for "that" or "this" in i+1
+                    if !isNumeric(num: resultAfterSplit[i+2]) &&
+                        isNumeric(num: resultAfterSplit[i-1]) &&
+                        resultAfterSplit[i+2] == "this" ||
+                        resultAfterSplit[i+2] == "that" {
+                        
+                        //define the equation
+                        equation = resultAfterSplit[i-1] + "/\(result)"
+                        print(equation)
+                    }
+                    
+                }
+
                 
                 
             }
