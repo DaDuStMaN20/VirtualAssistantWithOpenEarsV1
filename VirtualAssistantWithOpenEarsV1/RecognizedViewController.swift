@@ -32,6 +32,7 @@ class RecognizedViewController: UIViewController{
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recognition")
             let results = try context.fetch(request)
             
+            //if results isnt empty
             if results.count > 0{
                 for item in results as! [NSManagedObject]{
                     let hypothesisResult = item.value(forKey: "hypothesis") as! String
@@ -53,6 +54,7 @@ class RecognizedViewController: UIViewController{
         //MARK: String Manipulation
         
         //split the hypothesis
+        //the last hypothesis in the array is the most recent one
         
         resultAfterSplit = hypothesis[hypothesis.count-1].characters.split{$0 == " "}.map(String.init)
         

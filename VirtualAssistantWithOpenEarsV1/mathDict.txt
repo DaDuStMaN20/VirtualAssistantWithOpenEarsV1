@@ -20,6 +20,10 @@ times
 divided by
 over
 out of
++
+-
+/
+*
 1
 2
 3
