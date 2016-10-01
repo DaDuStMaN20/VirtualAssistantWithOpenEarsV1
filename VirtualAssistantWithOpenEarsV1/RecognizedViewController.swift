@@ -26,7 +26,7 @@ class RecognizedViewController: UIViewController{
         let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
         
         
-        
+        //MARK: Data Retrieval
         do{
             
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recognition")
@@ -49,6 +49,8 @@ class RecognizedViewController: UIViewController{
         } catch {
             print("something went wrong with the retrieval of the data")
         }
+        
+        //MARK: String Manipulation
         
         //split the hypothesis
         
@@ -83,6 +85,8 @@ class RecognizedViewController: UIViewController{
     }
      */
     
+    //MARK: Main Functions
+    
     func math(){
         
     }
@@ -90,6 +94,17 @@ class RecognizedViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Additional Functions
+    
+    func isNumeric(num: String)-> Bool{
+        var result = false
+        if Int(num) != nil{
+            result = true
+            return result
+        }
+        return result
     }
     
 
