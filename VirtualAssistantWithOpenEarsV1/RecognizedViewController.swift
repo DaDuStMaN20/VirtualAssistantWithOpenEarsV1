@@ -72,7 +72,7 @@ class RecognizedViewController: UIViewController{
         //Will be modified once other methods are made. This is for testing purposes.
         resultLabel.text = "\nYou said: " + hypothesis[hypothesis.count-1]
         
-        
+        math()
         
         
     }
@@ -131,8 +131,8 @@ class RecognizedViewController: UIViewController{
                         resultAfterSplit[i-1] == "that" {
                         
                         //define the equation
-                        equation = String(result) + "+" + resultAfterSplit[i+1]
-                        
+                        equation = "\(result)+" + resultAfterSplit[i+1]
+                        print(equation)
                     }
                     
                     //check for "that" or "this" in i+1
@@ -142,8 +142,8 @@ class RecognizedViewController: UIViewController{
                         resultAfterSplit[i+1] == "that" {
                         
                         //define the equation
-                        equation = resultAfterSplit[i-1] + "+" + String(result)
-                        
+                        equation = resultAfterSplit[i-1] + "+\(result)"
+                        print(equation)
                     }
                 }
                 
@@ -160,7 +160,10 @@ class RecognizedViewController: UIViewController{
             if equation != "" {
                 expression = NSExpression(format: equation)
                 result = expression.expressionValue(with: nil, context: nil) as! Double
+                resultLabel.text = "\nYour Answer is \(result)"
             }
+            
+            
             
         }
 
