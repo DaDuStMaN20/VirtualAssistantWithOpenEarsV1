@@ -15,8 +15,10 @@ class RecognizedViewController: UIViewController{
     //MARK: Properties
     var hypothesis: [String] = []
     var recognitionScore: [String] = []
-    
     var resultAfterSplit: [String] = []
+    var expression: String = ""
+    var result: Double = 0.0
+    
     
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -59,12 +61,6 @@ class RecognizedViewController: UIViewController{
         resultAfterSplit = hypothesis[hypothesis.count-1].characters.split{$0 == " "}.map(String.init)
         
         
-        for i in 0 ..< resultAfterSplit.count{
-            //Try the math functions without the check to isNumeric, but do it in a do catch loop. if it hits the catch block, just continue and do nothing
-            //Only put a "I did not understand what you said" at the last one. 
-            //Or you could do a try catch inside of the catch to see if there was a two word operation (divided by)
-        }
-        
         
         //add text to the results page
         //Will be modified once other methods are made. This is for testing purposes.
@@ -90,7 +86,27 @@ class RecognizedViewController: UIViewController{
     //MARK: Main Functions
     
     func math(){
-        
+        //look for math terms
+        for i in 0 ..< resultAfterSplit.count{
+            
+            //MARK Math Functions
+            //safety check to stop null pointer exceptions.
+            //look for someting before and after resultsAfterSplit[i]
+            if resultAfterSplit[i+1] != nil && resultAfterSplit[i-1] != nil{
+                
+                //Addition
+                
+                //Subtraction
+                
+                //Multiplication
+                
+                //Division
+                
+            }
+            
+            
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
