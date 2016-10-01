@@ -13,11 +13,11 @@ import CoreData
 class RecognizedViewController: UIViewController{
     
     //MARK: Properties
-    var hypothesis: [String] = []
-    var recognitionScore: [String] = []
-    var resultAfterSplit: [String] = []
-    var expression: String = ""
-    var result: Double = 0.0
+    var hypothesis: [String] = []           //Stores the hypotheses from the database
+    var recognitionScore: [String] = []     //Stores the recognition score from the database
+    var resultAfterSplit: [String] = []     //The results after the hypothesis is split into an array of separate words
+    var expression: String = ""             //The expression that is to be calculated
+    var result: Double = 0.0                //the result of the expression. Is also used to carry the result of the previous expressions
     
     
     
@@ -60,6 +60,11 @@ class RecognizedViewController: UIViewController{
         
         resultAfterSplit = hypothesis[hypothesis.count-1].characters.split{$0 == " "}.map(String.init)
         
+        //Trims and converts string to lowercase
+        for i in 0 ..< resultAfterSplit.count{
+            resultAfterSplit[i] = resultAfterSplit[i].trimmingCharacters(in: .whitespaces)
+            resultAfterSplit[i] = resultAfterSplit[i].lowercased()
+        }
         
         
         //add text to the results page
@@ -83,6 +88,11 @@ class RecognizedViewController: UIViewController{
     }
      */
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     //MARK: Main Functions
     
     func math(){
@@ -92,9 +102,10 @@ class RecognizedViewController: UIViewController{
             //MARK Math Functions
             //safety check to stop null pointer exceptions.
             //look for someting before and after resultsAfterSplit[i]
-            if resultAfterSplit[i+1] != nil && resultAfterSplit[i-1] != nil{
+            if i+1 < resultAfterSplit.count && i-1 >= 0{
                 
                 //Addition
+                
                 
                 //Subtraction
                 
@@ -109,10 +120,7 @@ class RecognizedViewController: UIViewController{
 
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     //MARK: Additional Functions
     
