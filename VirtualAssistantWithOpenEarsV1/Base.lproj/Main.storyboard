@@ -35,9 +35,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please bare with me, I need a bit of time to think" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Ig-sHg">
-                                <frame key="frameInset" minX="16" minY="280" width="343" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please bare with me, I need a bit of time to think. At this time, I can only do simple math problems." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Ig-sHg">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +43,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="rQ4-Ig-sHg" firstAttribute="trailing" secondItem="GBv-ey-UbG" secondAttribute="trailing" id="0db-AJ-IXw"/>
+                            <constraint firstItem="rQ4-Ig-sHg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Di-ly-zeq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rQ4-Ig-sHg" secondAttribute="bottom" constant="281" id="9pZ-D6-Y8l"/>
                             <constraint firstItem="GBv-ey-UbG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="CZp-Yc-MU3"/>
+                            <constraint firstItem="rQ4-Ig-sHg" firstAttribute="leading" secondItem="GBv-ey-UbG" secondAttribute="leading" id="M74-Gt-gEj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GBv-ey-UbG" secondAttribute="trailing" id="bQg-Bg-9aA"/>
                             <constraint firstItem="GBv-ey-UbG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dz0-Je-vc2"/>
                         </constraints>
