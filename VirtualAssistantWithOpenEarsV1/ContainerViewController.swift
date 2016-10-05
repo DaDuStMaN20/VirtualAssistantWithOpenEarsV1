@@ -61,6 +61,8 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         microphoneImageView.animationDuration = 0.6
         microphoneImageView.startAnimating()
         
+        //Start the recognition up in the background
+        
         DispatchQueue.global(qos: .background).async {
             print("This is run on the background queue")
             //start recognition
