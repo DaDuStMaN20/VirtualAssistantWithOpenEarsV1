@@ -61,9 +61,19 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         microphoneImageView.animationDuration = 0.6
         microphoneImageView.startAnimating()
         
-        //start recognition
-        startRecognition()
-        changeToListening()
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            //start recognition
+            self.startRecognition()
+
+            DispatchQueue.main.async {
+                print("This is run on the main queue, after the previous code in outer block")
+                changeToListening()
+                
+            }
+        }
+        
+                
     }
     
    
@@ -197,6 +207,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
     func pocketsphinxDidStartListening() {
         print("I Started to listen")
+        
         
         
     }
