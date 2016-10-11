@@ -76,10 +76,10 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
                 print("This is run on the main queue, after the previous code in outer block")
                 
                 //check whether music is playing
-                if musicPlayer.playbackState == 1{
+                if self.musicPlayer.playbackState == MPMusicPlaybackState.playing{
                     //change the wasPlaying until true
-                    wasPlaying = true
-                    musicPlayer.pause()
+                    self.wasPlaying = true
+                    self.musicPlayer.pause()
                 }
                 self.changeToListening()
                 
@@ -174,7 +174,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             
             //if the music was playing before recognition, start playing it again
             if wasPlaying {
-                mediaPlayer.play()
+                musicPlayer.play()
             }
             
             _ = OEPocketsphinxController.sharedInstance().stopListening

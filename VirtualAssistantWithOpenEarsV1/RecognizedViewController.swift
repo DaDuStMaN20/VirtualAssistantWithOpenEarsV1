@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import MediaPlayer
 
 class RecognizedViewController: UIViewController{
     
@@ -19,6 +20,9 @@ class RecognizedViewController: UIViewController{
     var equation: String = ""                                                   //The expression that is to be calculated
     var expression: NSExpression!                                               //The calculated expression
     var result: Double = 0.0                                                    //the result of the expression. Is also used to carry the result of the previous expressions
+    var musicPlayer = MPMusicPlayerController()                                 //Music Player from Music App
+
+    
     
     
     
@@ -367,6 +371,72 @@ class RecognizedViewController: UIViewController{
                     print("There was a problem saving data")
                 }
             }
+            
+            
+            
+        }
+
+    }
+    
+    //MARK: Music Control Function
+    func music(){
+        
+        
+        for i in 0 ..< resultAfterSplit.count{
+            
+            
+            
+            
+            //pause
+            //Check to see if Pause was said
+            if resultAfterSplit[i] == "pause"{
+                //check to see if music is playing to begin with
+                if musicPlayer.playbackState == MPMusicPlaybackState.playing{
+                    musicPlayer.pause()
+                }
+            }
+                    
+                
+            //shuffle
+            if i+3 < resultAfterSplit.count {
+                if (resultAfterSplit[i] == "suffle") || (resultAfterSplit[i] == "shuffle" && resultAfterSplit[i+1] == "my" &&
+                    resultAfterSplit[i+2] == "music") || (resultAfterSplit[i] == "play" && resultAfterSplit[i+1] == "my" &&
+                    resultAfterSplit[i+2] == "music" && resultAfterSplit[i+3] == "shuffled"){
+                    musicPlayer.shuffleMode = .songs
+                    musicPlayer.play()
+                }
+            }
+            
+            
+            //play
+            if resultAfterSplit[i] == "play"{
+                //check to see if music is playing to begin with
+                if musicPlayer.playbackState == MPMusicPlaybackState.paused{
+                    musicPlayer.play()
+                }
+            }
+
+            //ADD RECOGNIZABLE WORDS!!!
+            
+            //previous
+            if resultAfterSplit[i] == "previous"{
+                //check to see if music is playing to begin with
+                musicPlayer.skipToPreviousItem()
+            }
+            
+            //next
+            if resultAfterSplit[i] == "next"{
+                //check to see if music is playing to begin with
+                musicPlayer.skipToNextItem()
+            }
+
+            
+            //start over
+            if resultAfterSplit[i] == "beginning"{
+                //check to see if music is playing to begin with
+                musicPlayer.skipToBeginning()
+            }
+                
             
             
             

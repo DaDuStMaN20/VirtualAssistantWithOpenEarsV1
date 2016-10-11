@@ -3,6 +3,16 @@ hello iris
 hello world
 hey
 hey iris
+play
+music
+my
+shuffle
+shuffled
+pause
+my music
+beginning
+next
+previous
 what
 is
 what is
