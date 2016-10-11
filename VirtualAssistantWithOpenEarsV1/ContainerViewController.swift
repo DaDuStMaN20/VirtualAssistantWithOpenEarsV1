@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import MediaPlayer
 
 class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     
@@ -28,6 +29,9 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     var hypothesisData = ""                                 //hypothesis from recognition
     var recognitionScoreData = 0                            //recognition score (the closer to 0 the more accurate
     var correct = false
+    var musicPlayer = MPMusicPlayerController()         //Music Player from Music App
+    var wasPlaying: Bool = false
+    
     
     
     @IBOutlet weak var textLabel: UILabel!
@@ -70,6 +74,13 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
 
             DispatchQueue.main.async {
                 print("This is run on the main queue, after the previous code in outer block")
+                
+                //check whether music is playing
+                if musicPlayer.playbackState == 1{
+                    //change the wasPlaying until true
+                    wasPlaying = true
+                    musicPlayer.pause()
+                }
                 self.changeToListening()
                 
             }
@@ -116,6 +127,8 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
             print("Something went wrong with the dictionary file: " + e.description)
         }
         
+        //TOBEADDED: You need to add contact names in the dictionary!
+        
         //words = ["HELLO", "WORLD", "I", "THE DICTIONARY FILE"]
         
         name = "InitialLanguageModelFile"
@@ -144,7 +157,7 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
         
         //set sphinxcontroller variables
         OEPocketsphinxController.sharedInstance().secondsOfSilenceToDetect = 0.6        //seconds of silence before conclude utterance
-        OEPocketsphinxController.sharedInstance().vadThreshold = 3.0                    //the higher this number, the more background noise it will ignore
+        OEPocketsphinxController.sharedInstance().vadThreshold = 2.9                    //the higher this number, the more background noise it will ignore
         
         
         //MARK: Start Recognition
@@ -158,6 +171,12 @@ class ContainerViewController: UIViewController, OEEventsObserverDelegate {
     func stopListening(){
         
         if correct{
+            
+            //if the music was playing before recognition, start playing it again
+            if wasPlaying {
+                mediaPlayer.play()
+            }
+            
             _ = OEPocketsphinxController.sharedInstance().stopListening
             
             let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
