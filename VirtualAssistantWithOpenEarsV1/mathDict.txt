@@ -8,6 +8,8 @@ music
 my
 shuffle
 shuffled
+play my music shuffled
+shuffle my music
 pause
 my music
 beginning
