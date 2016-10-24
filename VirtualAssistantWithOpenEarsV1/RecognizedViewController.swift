@@ -454,6 +454,12 @@ class RecognizedViewController: UIViewController{
             result = true
             return result
         }
+        
+        if Double(num) != nil{
+            result = true
+            return result
+        }
+
         return result
     }
     
